@@ -3,21 +3,10 @@
 
 @theme static {
   --font-sans: 'Roboto', sans-serif;
-  --font-serif: 'Instrument Serif', serif;
 }
 
 :root {
   --ui-container: var(--container-5xl);
-
-  ::selection {
-    color: #282a30;
-    background-color: #c8c8c8;
-  }
-}
-
-.dark {
-  ::selection {
-    color: #ffffff;
-    background-color: #474747;
-  }
+  --ui-primary: #f45d33;
+  --ui-secondary: #f78e1e;
 }

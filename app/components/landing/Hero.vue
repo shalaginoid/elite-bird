@@ -2,8 +2,7 @@
   <UPageHero
     :ui="{
       headline: 'flex items-center justify-center',
-      title: 'text-shadow-md max-w-lg mx-auto font-black',
-      links: 'mt-4 flex-col justify-center items-center',
+      title: 'max-w-xl mx-auto font-bold text-primary uppercase font-[Open_Sans]',
     }"
   >
     <!-- <template #headline>
@@ -70,7 +69,7 @@
           delay: 0.3,
         }"
       >
-        И бесплатно доставляем по Екатеринбургу
+        и бесплатно доставляем по Екатеринбургу
       </Motion>
     </template>
 
@@ -176,7 +175,7 @@
 <script setup lang="ts">
 import type { ButtonProps } from '@nuxt/ui';
 
-const { footer, global } = useAppConfig();
+// const { footer, global } = useAppConfig();
 
 const links = ref<ButtonProps[]>([
   {

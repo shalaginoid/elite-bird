@@ -12,15 +12,19 @@ export default defineNuxtConfig({
   css: ['~/assets/css/main.css'],
 
   fonts: {
-    families: [{ name: 'Roboto', provider: 'google', weights: [100, 200, 400, 500, 600, 700, 800, 900] }],
+    families: [
+      {
+        name: 'Roboto',
+        provider: 'google',
+        weights: [300, 400, 500, 600, 700, 800, 900],
+        styles: ['normal', 'italic'],
+      },
+      { name: 'Open Sans', provider: 'google', weights: [300, 400, 700], styles: ['normal', 'italic'] },
+    ],
   },
 
   ui: {
-    colorMode: true,
-  },
-
-  colorMode: {
-    preference: 'dark',
+    colorMode: false,
   },
 
   icon: {
