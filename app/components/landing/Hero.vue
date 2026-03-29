@@ -94,7 +94,7 @@
         <div v-if="links" class="flex items-center gap-2">
           <UButton v-bind="links[0]" />
 
-          <UButton
+          <!-- <UButton
             :color="global.available ? 'success' : 'error'"
             variant="ghost"
             class="gap-2"
@@ -114,11 +114,11 @@
                 ></span>
               </span>
             </template>
-          </UButton>
+          </UButton> -->
         </div>
       </Motion>
 
-      <div class="gap-x-4 inline-flex mt-4">
+      <!-- <div class="gap-x-4 inline-flex mt-4">
         <Motion
           v-for="(link, index) of footer?.links"
           :key="index"
@@ -139,7 +139,7 @@
         >
           <UButton v-bind="{ size: 'md', color: 'neutral', variant: 'ghost', ...link }" />
         </Motion>
-      </div>
+      </div> -->
     </template>
 
     <UMarquee pause-on-hover class="py-2 -mx-8 sm:-mx-12 lg:-mx-16 [--duration:40s]">
@@ -180,9 +180,10 @@ const { footer, global } = useAppConfig();
 
 const links = ref<ButtonProps[]>([
   {
-    label: 'Use this template',
+    label: 'Продукция',
     to: 'https://github.com/nuxt-ui-templates/portfolio',
     color: 'neutral',
+    size: 'xl',
   },
 ]);
 
