@@ -184,6 +184,7 @@ const links = ref<ButtonProps[]>([
     to: 'https://github.com/nuxt-ui-templates/portfolio',
     color: 'neutral',
     size: 'xl',
+    icon: 'i-lucide-arrow-down',
   },
 ]);
 
