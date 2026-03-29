@@ -9,6 +9,8 @@ export default defineNuxtConfig({
     baseURL: '/elite-bird/',
   },
 
+  ssr: false,
+
   // nitro: {
   //   preset: 'github-pages',
   // },
