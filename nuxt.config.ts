@@ -1,17 +1,19 @@
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
 
-  devtools: { enabled: true },
+  devtools: { enabled: false },
 
-  modules: ['@nuxt/ui'],
+  modules: ['@nuxt/ui', 'motion-v/nuxt', '@nuxt/image'],
 
   app: {
     baseURL: '/elite-bird/',
   },
 
-  ssr: true,
+  css: ['~/assets/css/main.css'],
 
-  // nitro: {
-  //   preset: 'github-pages',
-  // },
+  vite: {
+    optimizeDeps: {
+      include: ['@vue/devtools-core', '@vue/devtools-kit'],
+    },
+  },
 });
