@@ -8,7 +8,7 @@
       <UCard v-for="product in products" :key="product.id">
         <template #header>
           <div class="h-40 -m-4 bg-gray-100 flex items-center justify-center overflow-hidden">
-            <img :src="product.image" :alt="product.name" class="w-full h-full object-cover" />
+            <img :src="config.app.baseURL + product.image" :alt="product.name" class="w-full h-full object-cover" />
           </div>
 
           <p class="font-semibold">{{ product.name }}</p>
@@ -18,7 +18,7 @@
 
         <div class="flex items-center justify-between">
           <span class="font-bold text-primary">{{ product.price }} ₽</span>
-          <UButton icon="i-heroicons-plus" label="В корзину" size="sm" @click="addToCart(product)" />
+          <UButton icon="i-lucide-plus" label="В корзину" size="sm" @click="addToCart(product)" />
         </div>
       </UCard>
     </div>
@@ -28,6 +28,8 @@
 <script lang="ts" setup>
 const { addToCart } = useCart();
 
+const config = useRuntimeConfig();
+
 const products = [
   {
     id: 1,
@@ -35,7 +37,7 @@ const products = [
     price: 300,
     discountThreshold: 5000,
     discountRate: 0.1,
-    description: 'Охлажденные, в вакуумной упаковке',
+    description: 'Охлажденные, в вакуумной упаковке. При заказе от 5000р скидка 10%',
     image: '/catalog/perepelka.jpg',
   },
   {
@@ -44,7 +46,7 @@ const products = [
     price: 1500,
     discountThreshold: 5000,
     discountRate: 0.1,
-    description: 'Охлажденные, в вакуумной упаковке',
+    description: 'Охлажденные, в вакуумной упаковке. При заказе от 5000р скидка 10%',
     image: '/catalog/cesarka.jpg',
   },
   {
@@ -53,7 +55,7 @@ const products = [
     price: 1800,
     discountThreshold: 5000,
     discountRate: 0.1,
-    description: 'Охлажденные, в вакуумной упаковке',
+    description: 'Охлажденные, в вакуумной упаковке. При заказе от 5000р скидка 10%',
     image: '/catalog/fazan.jpg',
   },
 ];

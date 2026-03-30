@@ -1,7 +1,7 @@
 <template>
   <UModal title="Ваша корзина">
-    <UChip :text="totalItems" size="2xl" :show="totalItems > 0">
-      <UButton icon="i-heroicons-shopping-bag" variant="ghost" />
+    <UChip :text="totalItems" size="3xl" :show="totalItems > 0">
+      <UButton icon="i-lucide-shopping-cart" :variant="totalItems === 0 ? 'ghost' : 'soft'" />
     </UChip>
 
     <template #description></template>
