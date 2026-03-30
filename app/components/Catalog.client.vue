@@ -19,10 +19,36 @@
         <UPageCard :title="product.name" orientation="vertical" reverse>
           <template #description>
             <div class="font-bold text-primary mb-2">{{ product.price }} ₽</div>
+
             <div class="mb-4">{{ product.description }}</div>
-            <UButton icon="i-lucide-plus" label="В корзину" size="sm" @click="addToCart(product)" />
+
+            <div class="flex items-center justify-between mt-4 h-10">
+              <!-- Фиксированная высота, чтобы верстка не прыгала -->
+              <span class="font-bold text-lg">{{ product.price }} ₽</span>
+
+              <!-- Если товара НЕТ в корзине — показываем обычную кнопку -->
+              <UButton
+                v-if="!getCartItem(product.id)"
+                icon="i-lucide-shopping-cart"
+                label="В корзину"
+                color="primary"
+                @click="addToCart(product)"
+              />
+
+              <!-- Если товар ЕСТЬ — показываем контроллер +/- -->
+              <UFieldGroup v-else size="sm" orientation="horizontal">
+                <UButton icon="i-lucide-minus" variant="soft" @click="updateQuantity(product.id, -1)" />
+
+                <UButton variant="soft" disabled class="min-w-10 font-bold text-primary flex justify-center">
+                  {{ getCartItem(product.id).quantity }}
+                </UButton>
+
+                <UButton icon="i-lucide-plus" variant="soft" @click="updateQuantity(product.id, 1)" />
+              </UFieldGroup>
+            </div>
           </template>
-          <img :src="config.app.baseURL + product.image" :alt="product.name" class="w-full" />
+
+          <img :src="config.app.baseURL + product.image" :alt="product.name" class="w-full rounded" />
         </UPageCard>
       </Motion>
     </div>
@@ -30,9 +56,14 @@
 </template>
 
 <script lang="ts" setup>
-const { addToCart } = useCart();
+const { cart, addToCart, updateQuantity } = useCart();
 
 const config = useRuntimeConfig();
+
+// Получаем объект товара из корзины, чтобы иметь доступ к его количеству
+const getCartItem: any = (productId: number) => {
+  return cart.value.find((item) => item.id === productId);
+};
 
 const products = [
   {

@@ -23,12 +23,6 @@
         }"
       >
         Производим
-        <!-- <UColorModeAvatar
-          class="size-18 ring ring-default ring-offset-3 ring-offset-bg"
-          :light="global.picture?.light!"
-          :dark="global.picture?.dark!"
-          :alt="global.picture?.alt!"
-        /> -->
       </Motion>
     </template>
 
@@ -49,7 +43,7 @@
           delay: 0.1,
         }"
       >
-        Мясо элитной птицы
+        <span class="lowercase">Мясо элитной птицы</span>
       </Motion>
     </template>
 

@@ -3,10 +3,14 @@
     <UContainer class="sm:border-x border-default pt-10 relative">
       <!-- <AppHeader :links="navLinks" /> -->
 
-      <div class="flex justify-between absolute sm:left-12 left-6 sm:right-12 right-6 top-4 sm:top-8 z-10">
-        <div class="text-primary font-black lowercase text-xl">Логотип</div>
+      <div class="absolute top-8 left-8 sm:left-16">
+        <span class="text-primary font-black lowercase text-xl">Логотип</span>
+      </div>
 
-        <Cart />
+      <div class="fixed inset-x-4 top-8 z-10">
+        <UContainer class="mx-auto flex justify-end">
+          <Cart class="sm:me-4" />
+        </UContainer>
       </div>
 
       <slot></slot>

@@ -3,6 +3,8 @@ export default defineNuxtConfig({
 
   devtools: { enabled: false },
 
+  ssr: false,
+
   modules: ['@nuxt/ui', 'motion-v/nuxt', '@nuxt/image'],
 
   app: {

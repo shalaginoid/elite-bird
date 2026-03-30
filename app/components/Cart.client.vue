@@ -1,7 +1,12 @@
 <template>
   <UModal title="Ваша корзина" description="Вы можете закрыть корзину и продолжить покупки">
-    <UChip :text="totalItems" size="3xl" :show="totalItems > 0">
-      <UButton icon="i-lucide-shopping-cart" :variant="totalItems === 0 ? 'ghost' : 'soft'" />
+    <UChip :text="totalItems" size="3xl" :show="totalItems > 0" inset>
+      <UButton
+        icon="i-lucide-shopping-cart"
+        :variant="totalItems === 0 ? 'ghost' : 'soft'"
+        class="rounded-full"
+        size="xl"
+      />
     </UChip>
 
     <template #body>
@@ -12,10 +17,10 @@
           </div>
 
           <div v-for="item in cart" :key="item.id" class="flex flex-col border-b border-gray-100 py-3">
-            <UAvatar :src="item.image" :alt="item.name" size="lg" class="bg-gray-100" />
+            <UAvatar :src="item.image" :alt="item.name" size="lg" class="bg-gray-100 rounded" />
 
             <div class="flex items-center justify-between">
-              <div class="flex-1">
+              <div class="">
                 <p class="font-medium text-sm">{{ item.name }}</p>
 
                 <!-- Проверка: применяется ли скидка именно к этому товару сейчас -->
@@ -38,13 +43,23 @@
               </div>
 
               <!-- Кнопки управления +/- -->
-              <UFieldGroup size="2xs">
-                <UButton icon="i-lucide-minus" @click="updateQuantity(item.id, -1)" />
-                <UButton disabled>{{ item.quantity }}</UButton>
-                <UButton icon="i-lucide-plus" @click="updateQuantity(item.id, 1)" />
+              <UFieldGroup size="2xs" orientation="horizontal">
+                <UButton icon="i-lucide-minus" variant="soft" @click="updateQuantity(item.id, -1)" />
+
+                <UButton variant="soft" class="min-w-10 font-bold text-primary flex justify-center" disabled>
+                  {{ item.quantity }}
+                </UButton>
+
+                <UButton icon="i-lucide-plus" variant="soft" @click="updateQuantity(item.id, 1)" />
               </UFieldGroup>
 
-              <UButton icon="i-lucide-trash-2" color="red" variant="ghost" size="xs" @click="removeFromCart(item.id)" />
+              <UButton
+                icon="i-lucide-trash-2"
+                color="neutral"
+                variant="ghost"
+                size="xs"
+                @click="removeFromCart(item.id)"
+              />
             </div>
           </div>
         </div>
@@ -98,4 +113,6 @@ const {
   MIN_ORDER_SUM,
   isOrderValid,
 } = useCart();
+
+const config = useRuntimeConfig();
 </script>
