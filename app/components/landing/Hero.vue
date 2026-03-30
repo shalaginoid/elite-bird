@@ -2,10 +2,10 @@
   <UPageHero
     :ui="{
       headline: 'flex items-center justify-center',
-      title: 'max-w-xl mx-auto font-bold text-primary uppercase font-[Open_Sans]',
+      title: 'max-w-xl mx-auto font-black text-primary ',
     }"
   >
-    <!-- <template #headline>
+    <template #headline>
       <Motion
         :initial="{
           scale: 1.1,
@@ -22,14 +22,15 @@
           delay: 0.1,
         }"
       >
-        <UColorModeAvatar
+        Производим
+        <!-- <UColorModeAvatar
           class="size-18 ring ring-default ring-offset-3 ring-offset-bg"
           :light="global.picture?.light!"
           :dark="global.picture?.dark!"
           :alt="global.picture?.alt!"
-        />
+        /> -->
       </Motion>
-    </template> -->
+    </template>
 
     <template #title>
       <Motion
@@ -48,7 +49,7 @@
           delay: 0.1,
         }"
       >
-        Производим мясо элитной птицы
+        Мясо элитной птицы
       </Motion>
     </template>
 
@@ -181,7 +182,7 @@ const links = ref<ButtonProps[]>([
   {
     label: 'Продукция',
     to: 'https://github.com/nuxt-ui-templates/portfolio',
-    color: 'neutral',
+    color: 'secondary',
     size: 'xl',
     icon: 'i-lucide-arrow-down',
   },

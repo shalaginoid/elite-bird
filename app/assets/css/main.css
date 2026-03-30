@@ -2,11 +2,11 @@
 @import '@nuxt/ui';
 
 @theme static {
-  --font-sans: 'Roboto', sans-serif;
+  --font-sans: 'Montserrat', sans-serif;
 }
 
 :root {
   --ui-container: var(--container-5xl);
   --ui-primary: #f45d33;
-  --ui-secondary: #f78e1e;
+  --ui-secondary: #484b48;
 }
