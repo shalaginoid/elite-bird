@@ -59,6 +59,16 @@
 
         <template #footer v-if="cart.length > 0">
           <div class="space-y-4">
+            <!-- Инфо-блок о минимальном заказе -->
+            <UAlert
+              v-if="!isOrderValid"
+              icon="i-heroicons-information-circle"
+              color="orange"
+              variant="soft"
+              title="Минимальный заказ"
+              :description="`Добавьте товаров еще на ${amountToMinOrder} ₽, чтобы оформить заказ (минимум ${MIN_ORDER_SUM} ₽)`"
+            />
+
             <div class="flex justify-between items-center font-bold text-lg">
               <span>Итого:</span>
               <span class="text-primary">{{ totalPrice }} ₽</span>
@@ -66,7 +76,15 @@
 
             <div class="flex gap-2">
               <UButton label="Очистить" color="red" variant="soft" icon="i-heroicons-trash" @click="clearCart" />
-              <UButton label="Оформить заказ" color="primary" block class="flex-1" />
+
+              <UButton
+                label="Оформить заказ"
+                color="primary"
+                block
+                size="lg"
+                :disabled="!isOrderValid"
+                :icon="isOrderValid ? 'i-lucide-check' : 'i-lucide-lock'"
+              />
             </div>
           </div>
         </template>
@@ -76,5 +94,16 @@
 </template>
 
 <script setup>
-const { cart, totalPrice, totalItems, updateQuantity, removeFromCart, clearCart, getItemSubtotal } = useCart();
+const {
+  cart,
+  totalPrice,
+  totalItems,
+  updateQuantity,
+  removeFromCart,
+  clearCart,
+  getItemSubtotal,
+  amountToMinOrder,
+  MIN_ORDER_SUM,
+  isOrderValid,
+} = useCart();
 </script>

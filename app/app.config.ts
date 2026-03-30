@@ -15,6 +15,11 @@ export default defineAppConfig({
       primary: 'blue',
       neutral: 'neutral',
     },
+    button: {
+      slots: {
+        base: 'cursor-pointer',
+      },
+    },
   },
   footer: {
     credits: `Built with Nuxt UI • © ${new Date().getFullYear()}`,

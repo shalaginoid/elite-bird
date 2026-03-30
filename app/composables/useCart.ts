@@ -14,6 +14,15 @@ interface CartItem {
 export const useCart = () => {
   const toast = useToast();
 
+  // Минимальная сумма заказа
+  const MIN_ORDER_SUM = 900;
+
+  // Валидация кнопки оформления заказа
+  const isOrderValid = computed(() => totalPrice.value >= MIN_ORDER_SUM);
+
+  // Сколько еще нужно добрать до минималки
+  const amountToMinOrder = computed(() => Math.max(0, MIN_ORDER_SUM - totalPrice.value));
+
   const cart = useLocalStorage<CartItem[]>('shopping-cart', []);
 
   // Очистка корзины
@@ -89,5 +98,8 @@ export const useCart = () => {
     totalPrice,
     originalPrice,
     totalItems,
+    isOrderValid,
+    amountToMinOrder,
+    MIN_ORDER_SUM,
   };
 };
