@@ -20,6 +20,11 @@ export default defineAppConfig({
         base: 'cursor-pointer',
       },
     },
+    // modal: {
+    //   slots: {
+    //     body: 'flex-1 p-0',
+    //   },
+    // },
   },
   footer: {
     credits: `Built with Nuxt UI • © ${new Date().getFullYear()}`,
