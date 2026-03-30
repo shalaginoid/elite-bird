@@ -17,8 +17,7 @@
           </div>
 
           <div v-for="item in cart" :key="item.id" class="flex flex-col border-b border-gray-100 py-3">
-            <!-- <UAvatar :src="item.image" :alt="item.name" size="lg" class="bg-gray-100 rounded" /> -->
-            <UAvatar src="/catalog/perepelka.jpg" :alt="item.name" size="lg" class="bg-gray-100 rounded" />
+            <UAvatar :src="item.image" :alt="item.name" size="lg" class="bg-gray-100 rounded" />
 
             <div class="flex items-center justify-between">
               <div class="">
