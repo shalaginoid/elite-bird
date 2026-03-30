@@ -9,4 +9,5 @@
   --ui-container: var(--container-5xl);
   --ui-primary: #f45d33;
   --ui-secondary: #484b48;
+  --ui-header-height: 96px;
 }
