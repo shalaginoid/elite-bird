@@ -18,6 +18,6 @@ useHead({
 });
 
 useSeoMeta({
-  titleTemplate: '%s - Nuxt Template',
+  titleTemplate: '%s',
 });
 </script>

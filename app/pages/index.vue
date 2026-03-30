@@ -1,12 +1,14 @@
 <template>
   <UPage>
     <LandingHero />
+
+    <Catalog />
   </UPage>
 </template>
 
 <script setup lang="ts">
 useSeoMeta({
-  title: 'Title',
-  description: 'Description',
+  title: 'Перепела бройлерные, цесарка, фазан вольерный - купить в Екатеринбурге',
+  description: 'Производим мясо элитной птицы и бесплатно доставляем по Екатеринбургу',
 });
 </script>
