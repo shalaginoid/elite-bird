@@ -1,10 +1,8 @@
 <template>
-  <UModal title="Ваша корзина">
+  <UModal title="Ваша корзина" description="Вы можете закрыть корзину и продолжить покупки">
     <UChip :text="totalItems" size="3xl" :show="totalItems > 0">
       <UButton icon="i-lucide-shopping-cart" :variant="totalItems === 0 ? 'ghost' : 'soft'" />
     </UChip>
-
-    <template #description></template>
 
     <template #body>
       <UCard :ui="{ ring: '', divide: 'divide-y divide-gray-100 dark:divide-gray-800' }">
@@ -41,18 +39,12 @@
 
               <!-- Кнопки управления +/- -->
               <UFieldGroup size="2xs">
-                <UButton icon="i-heroicons-minus" @click="updateQuantity(item.id, -1)" />
+                <UButton icon="i-lucide-minus" @click="updateQuantity(item.id, -1)" />
                 <UButton disabled>{{ item.quantity }}</UButton>
-                <UButton icon="i-heroicons-plus" @click="updateQuantity(item.id, 1)" />
+                <UButton icon="i-lucide-plus" @click="updateQuantity(item.id, 1)" />
               </UFieldGroup>
 
-              <UButton
-                icon="i-heroicons-trash"
-                color="red"
-                variant="ghost"
-                size="xs"
-                @click="removeFromCart(item.id)"
-              />
+              <UButton icon="i-lucide-trash-2" color="red" variant="ghost" size="xs" @click="removeFromCart(item.id)" />
             </div>
           </div>
         </div>
@@ -62,7 +54,7 @@
             <!-- Инфо-блок о минимальном заказе -->
             <UAlert
               v-if="!isOrderValid"
-              icon="i-heroicons-information-circle"
+              icon="i-lucide-info"
               color="orange"
               variant="soft"
               title="Минимальный заказ"
@@ -75,7 +67,7 @@
             </div>
 
             <div class="flex gap-2">
-              <UButton label="Очистить" color="red" variant="soft" icon="i-heroicons-trash" @click="clearCart" />
+              <UButton label="Очистить" color="neutral" variant="soft" icon="i-lucide-trash-2" @click="clearCart" />
 
               <UButton
                 label="Оформить заказ"
