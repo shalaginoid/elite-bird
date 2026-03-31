@@ -17,7 +17,12 @@
       <div class="divide-default/50 divide-y">
         <div v-for="item in cart" :key="item.id" class="grid grid-cols-4 gap-4 py-4">
           <div>
-            <NuxtImg :src="item.image" width="50" height="50" class="rounded-lg aspect-square object-cover" />
+            <NuxtImg
+              v-bind="{ src: item.image, alt: item.name }"
+              width="50"
+              height="50"
+              class="rounded-lg aspect-square object-cover"
+            />
 
             <!-- <UAvatar :src="item.image" :alt="item.name" size="lg" class="bg-gray-100 rounded" /> -->
           </div>
