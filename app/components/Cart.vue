@@ -37,10 +37,11 @@
                 <span class="text-[10px] text-green-500 font-medium">
                   Акция: -{{ item.discountRate * 100 }}% от {{ item.discountThreshold }} ₽
                 </span>
+                commit
               </div>
 
               <div v-else class="flex flex-col">
-                <span class="text-sm font-bold text-primary">{{ item.price * item.quantity }} ₽</span>
+                <span class="text-sm font-bold">{{ item.price * item.quantity }} ₽</span>
                 <span class="text-[10px] text-gray-400">
                   Скидка {{ item.discountRate * 100 }}% при заказе от {{ item.discountThreshold }} ₽
                 </span>

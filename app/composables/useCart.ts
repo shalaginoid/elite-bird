@@ -44,7 +44,6 @@ export const useCart = () => {
       title: 'Товар добавлен!',
       description: `${product.name} теперь в корзине.`,
       icon: 'i-lucide-check',
-      color: 'success',
     });
   };
 
