@@ -22,7 +22,7 @@
 
             <ClientOnly>
               <div class="flex items-center justify-between mt-4 h-10">
-                <span class="font-bold text-lg text-primary">{{ product.price }} ₽</span>
+                <span class="font-bold text-lg">{{ product.price }} ₽</span>
 
                 <UButton
                   v-if="!getCartItem(product.id)"

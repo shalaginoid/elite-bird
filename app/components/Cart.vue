@@ -1,8 +1,10 @@
 <template>
   <UModal title="Ваша корзина" description="Вы можете закрыть корзину и продолжить покупки">
-    <UChip :text="totalItems" size="3xl" :show="totalItems > 0" inset>
-      <UButton color="secondary" icon="i-lucide-shopping-cart" class="rounded-full" size="xl" />
-    </UChip>
+    <ClientOnly>
+      <UChip :text="totalItems" size="3xl" :show="totalItems > 0" inset>
+        <UButton color="secondary" icon="i-lucide-shopping-cart" class="rounded-full" size="xl" />
+      </UChip>
+    </ClientOnly>
 
     <template #body>
       <div v-if="cart.length === 0" class="text-center py-8 text-gray-500">
@@ -15,7 +17,7 @@
       </div>
 
       <div class="divide-default/50 divide-y">
-        <div v-for="item in cart" :key="item.id" class="grid grid-cols-4 gap-4 py-4">
+        <div v-for="item in cart" :key="item.id" class="grid grid-cols-5 gap-4 py-4">
           <div>
             <NuxtImg
               v-bind="{ src: item.image, alt: item.name }"
@@ -23,8 +25,6 @@
               height="50"
               class="rounded-lg aspect-square object-cover"
             />
-
-            <!-- <UAvatar :src="item.image" :alt="item.name" size="lg" class="bg-gray-100 rounded" /> -->
           </div>
 
           <div class="col-span-2">
@@ -62,7 +62,7 @@
             </div>
           </div>
 
-          <!-- <div class="flex justify-end items-top">
+          <div class="flex justify-end items-top">
             <div>
               <UButton
                 @click="removeFromCart(item.id)"
@@ -72,7 +72,7 @@
                 size="xs"
               />
             </div>
-          </div> -->
+          </div>
         </div>
       </div>
     </template>
