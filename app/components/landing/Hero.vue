@@ -183,8 +183,11 @@ const scrollToSection = (id: string) => {
 const links = ref<ButtonProps[]>([
   {
     label: 'Продукция',
-    color: 'secondary',
+    color: 'primary',
+    variant: 'outline',
     size: 'xl',
+    class: 'rounded-full',
+    icon: 'i-lucide-shopping-basket',
     onClick() {
       scrollToSection('catalog');
     },

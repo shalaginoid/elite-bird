@@ -1,5 +1,5 @@
 <template>
-  <div class="max-w-4xl mx-auto">
+  <div class="max-w-4xl mx-auto pb-12">
     <h2 class="text-4xl font-black text-primary text-center mb-12" id="catalog">Наша продукция</h2>
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
