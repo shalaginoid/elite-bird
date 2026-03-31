@@ -164,6 +164,8 @@
         />
       </Motion>
     </UMarquee>
+
+    <NuxtImg src="/catalog/perepelka.jpg" />
   </UPageHero>
 </template>
 
