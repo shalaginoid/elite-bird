@@ -8,12 +8,12 @@
       <Motion
         v-for="(product, index) in products"
         :key="product.id"
-        :initial="{ scale: 1.1, opacity: 0, filter: 'blur(20px)' }"
+        :initial="{ opacity: 0, filter: 'blur(20px)' }"
         :transition="{
           duration: 0.6,
           delay: Number(index) * 0.1,
         }"
-        :while-in-view="{ scale: 1, opacity: 1, filter: 'blur(0px)' }"
+        :while-in-view="{ opacity: 1, filter: 'blur(0px)' }"
         :in-view-options="{ once: true }"
       >
         <UPageCard :title="product.name" orientation="vertical" reverse>
