@@ -170,15 +170,22 @@
 <script setup lang="ts">
 import type { ButtonProps } from '@nuxt/ui';
 
-// const { footer, global } = useAppConfig();
+const scrollToSection = (id: string) => {
+  const el = document.getElementById(id);
+  if (el) {
+    el.scrollIntoView({ behavior: 'smooth' });
+  }
+};
 
 const links = ref<ButtonProps[]>([
   {
     label: 'Продукция',
-    to: 'https://github.com/nuxt-ui-templates/portfolio',
     color: 'secondary',
     size: 'xl',
     icon: 'i-lucide-arrow-down',
+    onClick() {
+      scrollToSection('catalog');
+    },
   },
 ]);
 

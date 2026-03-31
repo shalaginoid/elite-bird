@@ -18,14 +18,12 @@
 
       <div class="divide-default/50 divide-y">
         <div v-for="item in cart" :key="item.id" class="grid grid-cols-5 gap-4 py-4">
-          <div>
-            <NuxtImg
-              v-bind="{ src: item.image, alt: item.name }"
-              width="234"
-              height="234"
-              class="rounded-lg aspect-square object-cover"
-            />
-          </div>
+          <NuxtImg
+            v-bind="{ src: item.image, alt: item.name }"
+            width="640"
+            height="640"
+            class="rounded-lg aspect-square object-cover"
+          />
 
           <div class="col-span-2 sm:col-span-3">
             <div>

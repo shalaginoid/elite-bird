@@ -1,8 +1,6 @@
 <template>
   <div class="max-w-4xl mx-auto">
-    <div class="flex justify-between items-center mb-6">
-      <h1 class="text-2xl font-black text-primary">Наша продукция</h1>
-    </div>
+    <h2 class="text-4xl font-black text-primary text-center mb-12" id="catalog">Наша продукция</h2>
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
       <Motion
@@ -46,8 +44,8 @@
           </template>
 
           <NuxtImg
-            width="234"
-            height="234"
+            width="640"
+            height="640"
             class="rounded-lg aspect-square object-cover"
             v-bind="{ src: product.image, alt: product.name }"
           />
@@ -72,7 +70,7 @@ const products = [
     price: 300,
     discountThreshold: 5000,
     discountRate: 0.1,
-    description: 'Охлажденные, в вакуумной упаковке. При заказе от 5000р скидка 10%',
+    description: 'Охлажденные, в вакуумной упаковке. При заказе на сумму от 5000 руб. - скидка 10%',
     image: '/catalog/perepelka.jpg',
   },
   {
@@ -81,7 +79,7 @@ const products = [
     price: 1500,
     discountThreshold: 5000,
     discountRate: 0.1,
-    description: 'Охлажденные, в вакуумной упаковке. При заказе от 5000р скидка 10%',
+    description: 'Охлажденные, в вакуумной упаковке. При заказе на сумму от 5000 руб. - скидка 10%',
     image: '/catalog/cesarka.jpg',
   },
   {
@@ -90,7 +88,7 @@ const products = [
     price: 1800,
     discountThreshold: 5000,
     discountRate: 0.1,
-    description: 'Охлажденные, в вакуумной упаковке. При заказе от 5000р скидка 10%',
+    description: 'Охлажденные, в вакуумной упаковке. При заказе на сумму от 5000 руб. - скидка 10%',
     image: '/catalog/fazan.jpg',
   },
 ];
