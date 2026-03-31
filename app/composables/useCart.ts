@@ -29,11 +29,11 @@ export const useCart = () => {
       cart.value.push({ ...product, quantity: 1 });
     }
 
-    toast.add({
-      title: 'Товар добавлен!',
-      description: `${product.name} теперь в корзине.`,
-      icon: 'i-lucide-check',
-    });
+    // toast.add({
+    //   title: 'Товар добавлен!',
+    //   description: `${product.name} теперь в корзине.`,
+    //   icon: 'i-lucide-check',
+    // });
   };
 
   // Обновление корзины
