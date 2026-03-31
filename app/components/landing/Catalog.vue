@@ -3,10 +3,6 @@
     id="catalog"
     title="Наша продукция"
     description="Мясо доставляется сырым, охлажденным, в вакуумной упаковке"
-    :ui="{
-      title: 'text-left text-xl sm:text-xl lg:text-4xl font-black text-primary',
-      description: 'text-left mt-3 text-sm sm:text-md lg:text-sm text-muted',
-    }"
   >
     <UBlogPosts>
       <UBlogPost v-for="(product, index) in products" :key="index" v-bind="product">

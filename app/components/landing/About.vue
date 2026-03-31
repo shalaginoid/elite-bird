@@ -1,11 +1,5 @@
 <template>
-  <UPageSection
-    title="О нас"
-    :ui="{
-      title: 'text-left text-xl sm:text-xl lg:text-4xl font-black text-primary',
-      description: 'text-left mt-3 text-sm sm:text-md lg:text-sm text-muted',
-    }"
-  >
+  <UPageSection title="О нас">
     <template #description>
       <p>
         Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit quod tenetur minus fugiat! Aut itaque

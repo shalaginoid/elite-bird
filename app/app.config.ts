@@ -20,11 +20,13 @@ export default defineAppConfig({
         base: 'cursor-pointer',
       },
     },
-    // modal: {
-    //   slots: {
-    //     body: 'flex-1 p-0',
-    //   },
-    // },
+    pageSection: {
+      slots: {
+        container: 'flex flex-col lg:grid py-16 sm:py-16 lg:py-16 gap-8 sm:gap-8',
+        title: 'text-left! text-xl sm:text-xl lg:text-4xl font-black text-primary',
+        description: 'text-left! mt-3 text-sm sm:text-md lg:text-sm text-muted',
+      },
+    },
   },
   footer: {
     credits: `Built with Nuxt UI • © ${new Date().getFullYear()}`,
