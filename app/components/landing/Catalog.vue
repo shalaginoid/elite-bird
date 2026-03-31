@@ -15,6 +15,15 @@
         :in-view-options="{ once: true }"
       ></Motion> -->
       <UBlogPost v-for="(product, index) in products" :key="index" v-bind="product">
+        <template #header>
+          <NuxtImg
+            width="640"
+            height="640"
+            class="rounded-lg aspect-square object-cover"
+            v-bind="{ src: product.image, alt: product.name }"
+          />
+        </template>
+
         <template #title>
           {{ product.name }}
         </template>
