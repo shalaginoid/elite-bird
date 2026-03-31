@@ -1,8 +1,7 @@
 <template>
   <UPage>
     <LandingHero />
-
-    <Catalog />
+    <LandingCatalog />
   </UPage>
 </template>
 
