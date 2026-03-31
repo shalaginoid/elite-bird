@@ -18,37 +18,32 @@
       >
         <UPageCard :title="product.name" orientation="vertical" reverse>
           <template #description>
-            <div class="font-bold text-primary mb-2">{{ product.price }} ₽</div>
-
             <div class="mb-4">{{ product.description }}</div>
 
-            <div class="flex items-center justify-between mt-4 h-10">
-              <!-- Фиксированная высота, чтобы верстка не прыгала -->
-              <span class="font-bold text-lg">{{ product.price }} ₽</span>
+            <ClientOnly>
+              <div class="flex items-center justify-between mt-4 h-10">
+                <span class="font-bold text-lg text-primary">{{ product.price }} ₽</span>
 
-              <!-- Если товара НЕТ в корзине — показываем обычную кнопку -->
-              <UButton
-                v-if="!getCartItem(product.id)"
-                icon="i-lucide-shopping-cart"
-                label="В корзину"
-                color="primary"
-                @click="addToCart(product)"
-              />
+                <UButton
+                  v-if="!getCartItem(product.id)"
+                  icon="i-lucide-shopping-cart"
+                  label="В корзину"
+                  color="primary"
+                  @click="addToCart(product)"
+                />
 
-              <!-- Если товар ЕСТЬ — показываем контроллер +/- -->
-              <UFieldGroup v-else size="sm" orientation="horizontal">
-                <UButton icon="i-lucide-minus" variant="soft" @click="updateQuantity(product.id, -1)" />
+                <UFieldGroup v-else size="sm" orientation="horizontal">
+                  <UButton icon="i-lucide-minus" variant="soft" @click="updateQuantity(product.id, -1)" />
 
-                <UButton variant="soft" disabled class="min-w-10 font-bold text-primary flex justify-center">
-                  {{ getCartItem(product.id).quantity }}
-                </UButton>
+                  <UButton variant="soft" disabled class="min-w-10 font-bold text-primary flex justify-center">
+                    {{ getCartItem(product.id).quantity }}
+                  </UButton>
 
-                <UButton icon="i-lucide-plus" variant="soft" @click="updateQuantity(product.id, 1)" />
-              </UFieldGroup>
-            </div>
+                  <UButton icon="i-lucide-plus" variant="soft" @click="updateQuantity(product.id, 1)" />
+                </UFieldGroup>
+              </div>
+            </ClientOnly>
           </template>
-
-          <!-- <img :src="config.app.baseURL + product.image" :alt="product.name" class="w-full rounded" /> -->
 
           <NuxtImg
             width="234"
