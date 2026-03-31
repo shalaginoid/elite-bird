@@ -5,27 +5,7 @@
       title: 'max-w-xl mx-auto font-black text-primary ',
     }"
   >
-    <template #headline>
-      <Motion
-        :initial="{
-          scale: 1.1,
-          opacity: 0,
-          filter: 'blur(20px)',
-        }"
-        :animate="{
-          scale: 1,
-          opacity: 1,
-          filter: 'blur(0px)',
-        }"
-        :transition="{
-          duration: 0.6,
-          delay: 0.1,
-        }"
-      >
-        <!-- <NuxtImg src="/logo.svg" width="234" class="-mt-12 mb-6" /> -->
-        <!-- <div class="text-lg sm:text-xl/8 text-muted text-balance">Производим</div> -->
-      </Motion>
-    </template>
+    <template #headline></template>
 
     <template #title>
       <Motion

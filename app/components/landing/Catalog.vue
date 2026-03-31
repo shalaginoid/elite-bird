@@ -1,20 +1,12 @@
 <template>
-  <div class="max-w-4xl mx-auto pb-12">
-    <h2 class="text-4xl font-black text-primary text-center mb-12" id="catalog">Наша продукция</h2>
-
+  <UPageSection
+    title="Наша продукция"
+    :ui="{
+      title: 'text-left text-xl sm:text-xl lg:text-4xl font-black text-primary',
+      description: 'text-left mt-3 text-sm sm:text-md lg:text-sm text-muted',
+    }"
+  >
     <UBlogPosts>
-      <!-- <Motion
-        v-for="(product, index) in products"
-        :key="product.id"
-        :initial="{ opacity: 0, filter: 'blur(20px)' }"
-        :transition="{
-          duration: 0.6,
-          delay: Number(index) * 0.1,
-        }"
-        :while-in-view="{ opacity: 1, filter: 'blur(0px)' }"
-        :in-view-options="{ once: true }"
-      ></Motion> -->
-
       <UBlogPost v-for="(product, index) in products" :key="index" v-bind="product">
         <template #header>
           <NuxtImg
@@ -58,7 +50,56 @@
         </template>
       </UBlogPost>
     </UBlogPosts>
-  </div>
+  </UPageSection>
+
+  <!-- <div class="max-w-4xl mx-auto pb-12">
+    <h2 class="text-left text-xl sm:text-xl lg:text-4xl font-black text-primary" id="catalog">Наша продукция</h2>
+
+    <UBlogPosts>
+      <UBlogPost v-for="(product, index) in products" :key="index" v-bind="product">
+        <template #header>
+          <NuxtImg
+            width="640"
+            height="640"
+            class="rounded-lg aspect-square object-cover"
+            v-bind="{ src: product.image, alt: product.name }"
+          />
+        </template>
+
+        <template #title>
+          {{ product.name }}
+        </template>
+
+        <template #footer>
+          <div class="min-w-0 flex-1 flex flex-col p-4 pt-0 sm:pt-0 sm:p-6">
+            <ClientOnly>
+              <div class="flex items-center justify-between mt-4 h-10">
+                <span class="font-bold text-lg">{{ product.price }} ₽</span>
+
+                <UButton
+                  v-if="!getCartItem(product.id)"
+                  icon="i-lucide-shopping-cart"
+                  label="В корзину"
+                  color="primary"
+                  @click="addToCart(product)"
+                />
+
+                <UFieldGroup v-else size="sm" orientation="horizontal">
+                  <UButton icon="i-lucide-minus" variant="soft" @click="updateQuantity(product.id, -1)" />
+
+                  <UButton variant="soft" disabled class="min-w-10 font-bold text-primary flex justify-center">
+                    {{ getCartItem(product.id).quantity }}
+                  </UButton>
+
+                  <UButton icon="i-lucide-plus" variant="soft" @click="updateQuantity(product.id, 1)" />
+                </UFieldGroup>
+              </div>
+            </ClientOnly>
+          </div>
+        </template>
+      </UBlogPost>
+    </UBlogPosts>
+  </div> -->
 </template>
 
 <script lang="ts" setup>
