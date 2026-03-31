@@ -48,7 +48,14 @@
             </div>
           </template>
 
-          <img :src="config.app.baseURL + product.image" :alt="product.name" class="w-full rounded" />
+          <!-- <img :src="config.app.baseURL + product.image" :alt="product.name" class="w-full rounded" /> -->
+
+          <NuxtImg
+            width="234"
+            height="234"
+            class="rounded-lg aspect-square object-cover"
+            v-bind="{ src: product.image, alt: product.name }"
+          />
         </UPageCard>
       </Motion>
     </div>
@@ -57,8 +64,6 @@
 
 <script lang="ts" setup>
 const { cart, addToCart, updateQuantity } = useCart();
-
-const config = useRuntimeConfig();
 
 // Получаем объект товара из корзины, чтобы иметь доступ к его количеству
 const getCartItem: any = (productId: number) => {
