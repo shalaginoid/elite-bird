@@ -7,8 +7,9 @@
 
 :root {
   --ui-container: var(--container-5xl);
-  --ui-primary: #c28e38;
-  /* --ui-primary: #f45d33; */
-  --ui-secondary: #2D4232;
+  /* --ui-primary: #c28e38; */
+  --ui-primary: #f45d33;
+  --ui-secondary: #666;
   --ui-header-height: 96px;
+  --ui-bg: #F9F7F2
 }

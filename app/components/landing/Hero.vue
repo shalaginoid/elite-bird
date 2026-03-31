@@ -66,7 +66,9 @@
           delay: 0.3,
         }"
       >
-        Производим и бесплатно доставляем по Екатеринбургу
+        Производим и бесплатно доставляем
+        <br />
+        по Екатеринбургу
       </Motion>
     </template>
 
@@ -184,7 +186,6 @@ const links = ref<ButtonProps[]>([
     label: 'Продукция',
     color: 'secondary',
     size: 'xl',
-    icon: 'i-lucide-arrow-down',
     onClick() {
       scrollToSection('catalog');
     },
