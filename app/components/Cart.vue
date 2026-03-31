@@ -21,8 +21,8 @@
           <div>
             <NuxtImg
               v-bind="{ src: item.image, alt: item.name }"
-              width="50"
-              height="50"
+              width="234"
+              height="234"
               class="rounded-lg aspect-square object-cover"
             />
           </div>
