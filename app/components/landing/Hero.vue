@@ -23,7 +23,6 @@
         }"
       >
         <!-- <NuxtImg src="/logo.svg" width="234" class="-mt-12 mb-6" /> -->
-
         <!-- <div class="text-lg sm:text-xl/8 text-muted text-balance">Производим</div> -->
       </Motion>
     </template>
