@@ -1,3 +1,5 @@
+const baseURL = '/elite-bird/';
+
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
 
@@ -6,7 +8,7 @@ export default defineNuxtConfig({
   modules: ['@nuxt/ui', 'motion-v/nuxt', '@nuxt/image'],
 
   app: {
-    baseURL: '/elite-bird/',
+    baseURL: baseURL,
   },
 
   css: ['~/assets/css/main.css'],
@@ -29,10 +31,13 @@ export default defineNuxtConfig({
   },
 
   image: {
-    provider: 'none',
+    ipx: {
+      baseURL: `${baseURL}_ipx/`,
+    },
   },
 
   nitro: {
+    baseURL: baseURL,
     preset: 'github-pages',
     prerender: {
       crawlLinks: true,
