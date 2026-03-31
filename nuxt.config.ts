@@ -32,18 +32,18 @@ export default defineNuxtConfig({
 
   image: {
     ipx: {
-      baseURL: `${baseURL}_ipx/`,
+      baseURL: baseURL,
     },
   },
 
-  nitro: {
-    baseURL: baseURL,
-    preset: 'github-pages',
-    prerender: {
-      crawlLinks: true,
-      routes: ['/'],
-    },
-  },
+  // nitro: {
+  //   baseURL: baseURL,
+  //   preset: 'github-pages',
+  //   prerender: {
+  //     crawlLinks: true,
+  //     routes: ['/'],
+  //   },
+  // },
 
   ui: {
     colorMode: false,
