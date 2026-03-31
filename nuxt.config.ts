@@ -30,11 +30,11 @@ export default defineNuxtConfig({
     ],
   },
 
-  image: {
-    ipx: {
-      baseURL: baseURL,
-    },
-  },
+  // image: {
+  //   ipx: {
+  //     baseURL: baseURL,
+  //   },
+  // },
 
   // nitro: {
   //   baseURL: baseURL,
