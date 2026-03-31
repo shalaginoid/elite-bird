@@ -1,16 +1,5 @@
 import { useLocalStorage } from '@vueuse/core';
 
-interface CartItem {
-  id: number;
-  name: string;
-  description: string;
-  image: string;
-  price: number;
-  quantity: number;
-  discountThreshold: number;
-  discountRate: number;
-}
-
 export const useCart = () => {
   const toast = useToast();
 
@@ -23,7 +12,7 @@ export const useCart = () => {
   // Сколько еще нужно добрать до минималки
   const amountToMinOrder = computed(() => Math.max(0, MIN_ORDER_SUM - totalPrice.value));
 
-  const cart = useLocalStorage<CartItem[]>('shopping-cart', []);
+  const cart = useLocalStorage<Product[]>('shopping-cart', []);
 
   // Очистка корзины
   const clearCart = () => {
@@ -31,7 +20,7 @@ export const useCart = () => {
   };
 
   // Добавление в корзину
-  const addToCart = (product: Omit<CartItem, 'quantity'>) => {
+  const addToCart = (product: Omit<Product, 'quantity'>) => {
     const existingItem = cart.value.find((item) => item.id === product.id);
 
     if (existingItem) {
@@ -71,7 +60,7 @@ export const useCart = () => {
   const totalItems = computed(() => cart.value.reduce((sum, item) => sum + item.quantity, 0));
 
   // Расчет стоимости ОДНОЙ позиции с учетом её личных настроек
-  const getItemSubtotal = (item: CartItem) => {
+  const getItemSubtotal = (item: Product) => {
     const rawTotal = item.price * item.quantity;
 
     // Проверяем личный порог товара
