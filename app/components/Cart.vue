@@ -27,28 +27,30 @@
             />
           </div>
 
-          <div class="col-span-2">
-            <p class="font-medium text-sm">{{ item.name }}</p>
+          <div class="col-span-2 sm:col-span-3">
+            <div>
+              <p class="font-medium text-sm">{{ item.name }}</p>
 
-            <div v-if="item.price * item.quantity >= item.discountThreshold" class="flex flex-col">
-              <div class="flex items-center gap-2">
-                <span class="text-xs line-through text-gray-400">{{ item.price * item.quantity }} ₽</span>
-                <span class="text-sm font-bold text-green-600">{{ getItemSubtotal(item).toFixed(0) }} ₽</span>
+              <div v-if="item.price * item.quantity >= item.discountThreshold" class="flex flex-col">
+                <div class="flex items-center gap-2">
+                  <span class="text-xs line-through text-gray-400">{{ item.price * item.quantity }} ₽</span>
+                  <span class="text-sm font-bold text-green-600">{{ getItemSubtotal(item).toFixed(0) }} ₽</span>
+                </div>
+                <span class="text-[10px] text-green-500 font-medium">
+                  Акция: -{{ item.discountRate * 100 }}% от {{ item.discountThreshold }} ₽
+                </span>
               </div>
-              <span class="text-[10px] text-green-500 font-medium">
-                Акция: -{{ item.discountRate * 100 }}% от {{ item.discountThreshold }} ₽
-              </span>
-            </div>
 
-            <div v-else class="flex flex-col">
-              <span class="text-sm font-bold text-primary">{{ item.price * item.quantity }} ₽</span>
-              <span class="text-[10px] text-gray-400">
-                Скидка {{ item.discountRate * 100 }}% при заказе от {{ item.discountThreshold }} ₽
-              </span>
+              <div v-else class="flex flex-col">
+                <span class="text-sm font-bold text-primary">{{ item.price * item.quantity }} ₽</span>
+                <span class="text-[10px] text-gray-400">
+                  Скидка {{ item.discountRate * 100 }}% при заказе от {{ item.discountThreshold }} ₽
+                </span>
+              </div>
             </div>
           </div>
 
-          <div class="flex">
+          <div class="sm:flex sm:justify-end">
             <div>
               <UFieldGroup size="sm" orientation="horizontal">
                 <UButton icon="i-lucide-minus" variant="soft" @click="updateQuantity(item.id, -1)" />
@@ -62,7 +64,7 @@
             </div>
           </div>
 
-          <div class="flex justify-end items-top">
+          <!-- <div class="flex justify-end items-top">
             <div>
               <UButton
                 @click="removeFromCart(item.id)"
@@ -72,7 +74,7 @@
                 size="xs"
               />
             </div>
-          </div>
+          </div> -->
         </div>
       </div>
     </template>

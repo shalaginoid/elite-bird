@@ -22,7 +22,7 @@
           delay: 0.1,
         }"
       >
-        Производим
+        <div class="text-lg sm:text-xl/8 text-muted text-balance">Производим</div>
       </Motion>
     </template>
 
