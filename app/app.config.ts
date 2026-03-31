@@ -20,6 +20,11 @@ export default defineAppConfig({
         base: 'cursor-pointer',
       },
     },
+    pageHero: {
+      slots: {
+        title: 'max-w-2xl!',
+      },
+    },
     pageSection: {
       slots: {
         container: 'flex flex-col lg:grid py-16 sm:py-16 lg:py-16 gap-8 sm:gap-8',

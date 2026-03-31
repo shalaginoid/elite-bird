@@ -24,7 +24,7 @@
           delay: 0.1,
         }"
       >
-        <span>Мясо элитной птицы</span>
+        <span class="uppercase">Мясо элитной птицы</span>
       </Motion>
     </template>
 
