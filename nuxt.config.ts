@@ -28,6 +28,18 @@ export default defineNuxtConfig({
     ],
   },
 
+  image: {
+    provider: 'none',
+  },
+
+  nitro: {
+    preset: 'github-pages',
+    prerender: {
+      crawlLinks: true,
+      routes: ['/'],
+    },
+  },
+
   ui: {
     colorMode: false,
   },
