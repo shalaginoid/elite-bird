@@ -15,6 +15,8 @@
     <LandingAbout />
 
     <LandingCatalog />
+
+    <LandingDelivery />
   </UPage>
 </template>
 
