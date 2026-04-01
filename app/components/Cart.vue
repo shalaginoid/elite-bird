@@ -98,7 +98,7 @@
             />
 
             <template #body>
-              <Order />
+              <Order :cart="cart" />
             </template>
           </UDrawer>
         </div>
