@@ -1,5 +1,5 @@
 <template>
-  <UForm v-if="!isSuccess" :schema="orderSchema" :state="state" class="space-y-4 w-md" @submit="onSubmit">
+  <UForm v-if="!isSuccess" :schema="orderSchema" :state="state" class="space-y-4" @submit="onSubmit">
     <UFormField label="Имя" name="fullname">
       <UInput v-model="state.fullname" class="w-full" />
     </UFormField>
