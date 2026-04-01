@@ -36,12 +36,12 @@ export default defineNuxtConfig({
     serverBundle: false,
   },
 
-  nitro: {
-    preset: 'cloudflare-pages',
-    prerender: {
-      autoSubfolderIndex: false,
-    },
-  },
+  // nitro: {
+  //   preset: 'cloudflare-pages',
+  //   prerender: {
+  //     autoSubfolderIndex: false,
+  //   },
+  // },
 
   vite: {
     optimizeDeps: {
