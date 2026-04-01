@@ -86,9 +86,11 @@
         <div class="flex gap-2">
           <UButton label="Очистить" color="neutral" variant="soft" icon="i-lucide-trash-2" @click="clearCart" />
 
-          <UDrawer title="Оформление заказа" description="" direction="right">
+          <UModal
+            title="Оформление заказа"
+            description="После оформления заказа мы свяжемся с Вами для уточнения деталей"
+          >
             <UButton
-              @click="createOrder"
               label="Оформить заказ"
               color="primary"
               block
@@ -100,7 +102,7 @@
             <template #body>
               <Order :cart="cart" />
             </template>
-          </UDrawer>
+          </UModal>
         </div>
       </div>
     </template>
@@ -130,10 +132,6 @@ watch(totalPrice, () => {
     cartIconRef.value.classList.remove('bounce-active');
   }, 500);
 });
-
-const createOrder = () => {
-  console.log(cart.value);
-};
 </script>
 
 <style>

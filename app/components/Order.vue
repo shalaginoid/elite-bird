@@ -1,23 +1,28 @@
 <template>
-  <UForm :schema="orderSchema" :state="state" class="space-y-4 w-md" @submit="onSubmit">
+  <UForm v-if="!isSuccess" :schema="orderSchema" :state="state" class="space-y-4 w-md" @submit="onSubmit">
     <UFormField label="Имя" name="fullname">
-      <UInput v-model="state.fullname" autofocus />
+      <UInput v-model="state.fullname" class="w-full" />
     </UFormField>
 
     <UFormField label="Адрес доставки" name="address">
-      <UInput v-model="state.address" />
+      <UInput v-model="state.address" class="w-full" />
     </UFormField>
 
     <UFormField label="Телефон" name="phone">
-      <UInput v-model="state.phone" v-maska="'+7 (###) ##-##-###'" />
+      <UInput v-model="state.phone" class="w-full" v-maska="'+7 (###) ##-##-###'" />
     </UFormField>
 
     <UFormField label="Дата доставки" name="deliveryDate">
-      <UInput v-model="state.deliveryDate" />
+      <UInput v-model="state.deliveryDate" type="date" class="w-full" />
     </UFormField>
 
     <UButton type="submit">Заказать</UButton>
   </UForm>
+
+  <div v-else class="flex flex-col items-center gap-4">
+    <UIcon name="line-md:email-check" class="size-20" />
+    <div>Заказ оформлен</div>
+  </div>
 </template>
 
 <script setup lang="ts">
@@ -28,37 +33,69 @@ const props = defineProps<{
   cart: Product[];
 }>();
 
+const isSuccess = ref(false);
+
 const state = reactive<Partial<OrderSchema>>({
   fullname: 'Константин',
   address: 'Улица разбитых фонарей',
   phone: '+7 (902) 87-98-691',
-  deliveryDate: '01.04.2026',
+  deliveryDate: undefined,
 });
 
 async function onSubmit(event: FormSubmitEvent<OrderSchema>) {
   try {
-    const html = `
-      Имя: ${event.data.fullname}\n
-      Адрес: ${event.data.address}\n
-      Телефон: ${event.data.phone}\n
-      Дата доставки: ${event.data.deliveryDate}
-    `;
+    const order = generateTable(props.cart);
 
-    const response = await $fetch('https://api.emailjs.com/api/v1.0/email/send', {
-      method: 'POST',
-      body: {
-        service_id: 'service_duwf2yl',
-        template_id: 'template_lkfgscs',
-        user_id: 'JeFr0rG57HuS0cXES',
-        template_params: {
-          message: html,
-        },
-      },
-    });
+    isSuccess.value = true;
 
-    console.log(response);
+    // const html = `
+    //   Имя: ${event.data.fullname}\n
+    //   Адрес: ${event.data.address}\n
+    //   Телефон: ${event.data.phone}\n
+    //   Дата доставки: ${event.data.deliveryDate}\n
+    //   Заказ:\n
+    //   ${order}
+    // `;
+
+    // const response = await $fetch('https://api.emailjs.com/api/v1.0/email/send', {
+    //   method: 'POST',
+    //   body: {
+    //     service_id: 'service_duwf2yl',
+    //     template_id: 'template_lkfgscs',
+    //     user_id: 'JeFr0rG57HuS0cXES',
+    //     template_params: {
+    //       message: order.toString(),
+    //     },
+    //   },
+    // });
+
+    // console.log(response);
   } catch (error: any) {
     console.log(error);
   }
+}
+
+function generateTable(data: any) {
+  const table = document.createElement('table');
+  const thead = table.createTHead();
+  const headerRow = thead.insertRow();
+  const keys = Object.keys(data[0]);
+
+  keys.forEach((key) => {
+    const th = document.createElement('th');
+    th.textContent = key;
+    headerRow.appendChild(th);
+  });
+
+  const tbody = table.createTBody();
+  data.forEach((item: any) => {
+    const row = tbody.insertRow();
+    keys.forEach((key) => {
+      const cell = row.insertCell();
+      cell.textContent = item[key] ?? '';
+    });
+  });
+
+  return table;
 }
 </script>
