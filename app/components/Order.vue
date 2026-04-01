@@ -48,12 +48,11 @@ async function onSubmit(event: FormSubmitEvent<OrderSchema>) {
     const data = event.data;
 
     const order = generateTable(
+      // Удаляем лишние ключи из массива объектоа
       props.cart.map(({ id, image, discountThreshold, discountRate, description, ...rest }) => rest),
     );
 
-    console.log(order);
-
-    // isSuccess.value = true;
+    isSuccess.value = true;
 
     // const html = `
     //   Имя: ${event.data.fullname}\n
