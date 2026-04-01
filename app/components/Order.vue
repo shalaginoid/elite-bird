@@ -37,8 +37,6 @@ const state = reactive<Partial<OrderSchema>>({
 
 async function onSubmit(event: FormSubmitEvent<OrderSchema>) {
   try {
-    // const html = jsonToTable(toRaw(event.data));
-
     const html = `
       Имя: ${event.data.fullname}\n
       Адрес: ${event.data.address}\n
@@ -46,7 +44,6 @@ async function onSubmit(event: FormSubmitEvent<OrderSchema>) {
       Дата доставки: ${event.data.deliveryDate}
     `;
 
-    //CgQp6deQh8ixASpbTgSc
     const response = await $fetch('https://api.emailjs.com/api/v1.0/email/send', {
       method: 'POST',
       body: {
@@ -59,7 +56,7 @@ async function onSubmit(event: FormSubmitEvent<OrderSchema>) {
       },
     });
 
-    // console.log(response);
+    console.log(response);
   } catch (error: any) {
     console.log(error);
   }
