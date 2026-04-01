@@ -86,14 +86,21 @@
         <div class="flex gap-2">
           <UButton label="Очистить" color="neutral" variant="soft" icon="i-lucide-trash-2" @click="clearCart" />
 
-          <UButton
-            label="Оформить заказ"
-            color="primary"
-            block
-            size="lg"
-            :disabled="!isOrderValid"
-            :icon="isOrderValid ? 'i-lucide-check' : 'i-lucide-lock'"
-          />
+          <UDrawer title="Оформление заказа" description="" direction="right">
+            <UButton
+              @click="createOrder"
+              label="Оформить заказ"
+              color="primary"
+              block
+              size="lg"
+              :disabled="!isOrderValid"
+              :icon="isOrderValid ? 'i-lucide-check' : 'i-lucide-lock'"
+            />
+
+            <template #body>
+              <Order />
+            </template>
+          </UDrawer>
         </div>
       </div>
     </template>
@@ -116,27 +123,15 @@ const {
 
 const cartIconRef = ref(null);
 
-watch(totalPrice, (value) => {
+watch(totalPrice, () => {
   cartIconRef.value.classList.add('bounce-active');
 
   setTimeout(() => {
     cartIconRef.value.classList.remove('bounce-active');
   }, 500);
 });
+
+const createOrder = () => {
+  console.log(cart.value);
+};
 </script>
-
-<style>
-.bounce-active {
-  animation: bounce 0.5s ease;
-}
-
-@keyframes bounce {
-  0%,
-  100% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.2);
-  }
-}
-</style>

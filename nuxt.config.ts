@@ -38,7 +38,7 @@ export default defineNuxtConfig({
 
   vite: {
     optimizeDeps: {
-      include: ['@vue/devtools-core', '@vue/devtools-kit', '@vueuse/core'],
+      include: ['@vue/devtools-core', '@vue/devtools-kit', '@vueuse/core', 'zod/locales', 'zod'],
     },
   },
 });

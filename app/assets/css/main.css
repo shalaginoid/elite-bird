@@ -12,3 +12,17 @@
   --ui-header-height: 96px;
   --ui-bg: #f9f7f2;
 }
+
+.bounce-active {
+  animation: bounce 0.5s ease;
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+}
