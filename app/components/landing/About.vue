@@ -1,9 +1,11 @@
 <template>
   <UPageSection title="О нас">
     <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor velit corrupti minima quam error incidunt magni
-      quibusdam! Nihil expedita rem sint ex consectetur modi voluptatem doloribus, consequatur unde error deleniti!
+      Мы выращиваем мясо птицы по принципам здорового фермерства. Наша цель — предоставить вам продукт, который будет не
+      только вкусным, но и полезным для всей семьи.
     </p>
+
+    <p>Чем отличается наше мясо:</p>
 
     <Motion
       v-for="(item, index) in items"
@@ -24,15 +26,19 @@ import type { PageFeatureProps } from '@nuxt/ui';
 
 const items: PageFeatureProps[] = [
   {
-    description: 'Собственное производство',
+    title: 'Натуральный рост',
+    description: 'Птица растёт без гормонов и стимуляторов, в естественных условиях.',
     icon: 'i-lucide-minus',
   },
   {
-    description: 'Без ГМО, гормонов, антибиотиков и прочей химии',
+    title: 'Правильное питание',
+    description:
+      'В рационе — зерновые смеси, свежая зелень, овощи, минеральные добавки, без ГМО, гормонов, антибиотиков и прочей химии',
     icon: 'i-lucide-minus',
   },
   {
-    description: 'Собственное производство',
+    title: 'Свободный выгул',
+    description: 'Птицы имеют доступ к открытым площадкам, что улучшает качество мяса',
     icon: 'i-lucide-minus',
   },
 ];
