@@ -135,3 +135,19 @@ const createOrder = () => {
   console.log(cart.value);
 };
 </script>
+
+<style>
+.bounce-active {
+  animation: bounce 0.5s ease;
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+}
+</style>
