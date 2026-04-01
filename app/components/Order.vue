@@ -31,6 +31,7 @@ import { vMaska } from 'maska/vue';
 
 const props = defineProps<{
   cart: Product[];
+  total: number;
 }>();
 
 const isSuccess = ref(false);
@@ -44,9 +45,15 @@ const state = reactive<Partial<OrderSchema>>({
 
 async function onSubmit(event: FormSubmitEvent<OrderSchema>) {
   try {
-    const order = generateTable(props.cart);
+    const data = event.data;
 
-    isSuccess.value = true;
+    const order = generateTable(
+      props.cart.map(({ id, image, discountThreshold, discountRate, description, ...rest }) => rest),
+    );
+
+    console.log(order);
+
+    // isSuccess.value = true;
 
     // const html = `
     //   Имя: ${event.data.fullname}\n
@@ -88,6 +95,7 @@ function generateTable(data: any) {
   });
 
   const tbody = table.createTBody();
+
   data.forEach((item: any) => {
     const row = tbody.insertRow();
     keys.forEach((key) => {

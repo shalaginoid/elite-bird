@@ -100,7 +100,7 @@
             />
 
             <template #body>
-              <Order :cart="cart" />
+              <Order :cart="cart" :total="totalPrice" />
             </template>
           </UModal>
         </div>
