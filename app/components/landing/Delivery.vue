@@ -20,7 +20,7 @@ import type { PageFeatureProps } from '@nuxt/ui';
 const items: PageFeatureProps[] = [
   {
     title: 'Доставка',
-    description: 'Доставка осуществляется только по Екатеринбургу. Точная дата будет определена после обработки заказа',
+    description: 'Доставка осуществляется только по Екатеринбургу, точная дата будет определена после обработки заказа',
     icon: 'i-lucide-map-pin',
   },
   {
