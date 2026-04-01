@@ -16,12 +16,6 @@ export default defineNuxtConfig({
   fonts: {
     families: [
       {
-        name: 'Roboto',
-        provider: 'google',
-        weights: [300, 400, 500, 600, 700, 800, 900],
-        styles: ['normal', 'italic'],
-      },
-      {
         name: 'Montserrat',
         provider: 'google',
         weights: [300, 400, 500, 600, 700, 800, 900],
@@ -29,21 +23,6 @@ export default defineNuxtConfig({
       },
     ],
   },
-
-  // image: {
-  //   ipx: {
-  //     baseURL: baseURL,
-  //   },
-  // },
-
-  // nitro: {
-  //   baseURL: baseURL,
-  //   preset: 'github-pages',
-  //   prerender: {
-  //     crawlLinks: true,
-  //     routes: ['/'],
-  //   },
-  // },
 
   ui: {
     colorMode: false,

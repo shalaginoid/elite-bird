@@ -1,8 +1,6 @@
 import { useLocalStorage } from '@vueuse/core';
 
 export const useCart = () => {
-  const toast = useToast();
-
   // Минимальная сумма заказа
   const MIN_ORDER_SUM = 900;
 
@@ -28,12 +26,6 @@ export const useCart = () => {
     } else {
       cart.value.push({ ...product, quantity: 1 });
     }
-
-    // toast.add({
-    //   title: 'Товар добавлен!',
-    //   description: `${product.name} теперь в корзине.`,
-    //   icon: 'i-lucide-check',
-    // });
   };
 
   // Обновление корзины

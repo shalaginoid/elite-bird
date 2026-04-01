@@ -1,9 +1,11 @@
 <template>
   <UModal title="Ваша корзина" description="Вы можете закрыть корзину и продолжить покупки">
     <ClientOnly>
-      <UChip :text="totalItems" size="3xl" :show="totalItems > 0" inset>
-        <UButton color="secondary" icon="i-lucide-shopping-cart" size="xl" class="rounded-full" />
-      </UChip>
+      <div ref="cartIconRef">
+        <UChip :text="totalItems" size="3xl" :show="totalItems > 0" inset>
+          <UButton color="secondary" icon="i-lucide-shopping-cart" size="xl" class="rounded-full" />
+        </UChip>
+      </div>
     </ClientOnly>
 
     <template #body>
@@ -12,7 +14,7 @@
           variant="naked"
           icon="i-lucide-shopping-cart"
           title="Корзина пуста"
-          description="Время что-нибудь купить :)"
+          description="Время что-нибудь купить"
         />
       </div>
 
@@ -61,18 +63,6 @@
               </UFieldGroup>
             </div>
           </div>
-
-          <!-- <div class="flex justify-end items-top">
-            <div>
-              <UButton
-                @click="removeFromCart(item.id)"
-                icon="i-lucide-trash-2"
-                color="neutral"
-                variant="ghost"
-                size="xs"
-              />
-            </div>
-          </div> -->
         </div>
       </div>
     </template>
@@ -123,4 +113,30 @@ const {
   MIN_ORDER_SUM,
   isOrderValid,
 } = useCart();
+
+const cartIconRef = ref(null);
+
+watch(totalPrice, (value) => {
+  cartIconRef.value.classList.add('bounce-active');
+
+  setTimeout(() => {
+    cartIconRef.value.classList.remove('bounce-active');
+  }, 500);
+});
 </script>
+
+<style>
+.bounce-active {
+  animation: bounce 0.5s ease;
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+}
+</style>
