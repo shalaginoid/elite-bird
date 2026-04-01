@@ -36,6 +36,13 @@ export default defineNuxtConfig({
     serverBundle: false,
   },
 
+  nitro: {
+    preset: 'cloudflare-pages',
+    prerender: {
+      autoSubfolderIndex: false,
+    },
+  },
+
   vite: {
     optimizeDeps: {
       include: ['@vue/devtools-core', '@vue/devtools-kit', '@vueuse/core', 'zod/locales', 'zod', 'maska/vue'],
