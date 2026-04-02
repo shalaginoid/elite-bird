@@ -1,3 +1,5 @@
+import smtp from './smtp';
+
 const baseURL = '/elite-bird/';
 
 export default defineNuxtConfig({
@@ -5,11 +7,13 @@ export default defineNuxtConfig({
 
   devtools: { enabled: false },
 
-  modules: ['@nuxt/ui', 'motion-v/nuxt', '@nuxt/image'],
+  modules: ['@nuxt/ui', 'motion-v/nuxt', '@nuxt/image', 'nuxt-nodemailer'],
 
   app: {
     baseURL: baseURL,
   },
+
+  nodemailer: smtp,
 
   css: ['~/assets/css/main.css'],
 

@@ -1,21 +1,8 @@
 <template>
   <UPage>
     <LandingHero />
-
-    <!-- <UPageSection
-      :ui="{
-        container: 'pt-0! lg:grid lg:grid-cols-2 lg:gap-8',
-      }"
-    >
-      <LandingAbout />
-
-      <LandingWorkExperience />
-    </UPageSection> -->
-
     <LandingAbout />
-
     <LandingCatalog />
-
     <LandingDelivery />
   </UPage>
 </template>

@@ -8,6 +8,10 @@
       <UInput v-model="state.address" class="w-full" />
     </UFormField>
 
+    <UFormField label="E-mail" name="email">
+      <UInput v-model="state.email" class="w-full" />
+    </UFormField>
+
     <UFormField label="Телефон" name="phone">
       <UInput v-model="state.phone" class="w-full" v-maska="'+7 (###) ##-##-###'" />
     </UFormField>
@@ -38,71 +42,24 @@ const isSuccess = ref(false);
 
 const state = reactive<Partial<OrderSchema>>({
   fullname: 'Константин',
-  address: 'Улица разбитых фонарей',
+  address: 'Савкова 29-330',
+  email: 'shalaginoid@mail.ru',
   phone: '+7 (902) 87-98-691',
-  deliveryDate: undefined,
+  deliveryDate: '2026-04-03',
+  order: props.cart,
+  total: props.total,
 });
 
 async function onSubmit(event: FormSubmitEvent<OrderSchema>) {
   try {
-    const data = event.data;
-
-    const order = generateTable(
-      // Удаляем лишние ключи из массива объектоа
-      props.cart.map(({ id, image, discountThreshold, discountRate, description, ...rest }) => rest),
-    );
+    await $fetch('/api/order', {
+      method: 'POST',
+      body: event.data,
+    });
 
     isSuccess.value = true;
-
-    // const html = `
-    //   Имя: ${event.data.fullname}\n
-    //   Адрес: ${event.data.address}\n
-    //   Телефон: ${event.data.phone}\n
-    //   Дата доставки: ${event.data.deliveryDate}\n
-    //   Заказ:\n
-    //   ${order}
-    // `;
-
-    // const response = await $fetch('https://api.emailjs.com/api/v1.0/email/send', {
-    //   method: 'POST',
-    //   body: {
-    //     service_id: 'service_duwf2yl',
-    //     template_id: 'template_lkfgscs',
-    //     user_id: 'JeFr0rG57HuS0cXES',
-    //     template_params: {
-    //       message: order.toString(),
-    //     },
-    //   },
-    // });
-
-    // console.log(response);
   } catch (error: any) {
     console.log(error);
   }
-}
-
-function generateTable(data: any) {
-  const table = document.createElement('table');
-  const thead = table.createTHead();
-  const headerRow = thead.insertRow();
-  const keys = Object.keys(data[0]);
-
-  keys.forEach((key) => {
-    const th = document.createElement('th');
-    th.textContent = key;
-    headerRow.appendChild(th);
-  });
-
-  const tbody = table.createTBody();
-
-  data.forEach((item: any) => {
-    const row = tbody.insertRow();
-    keys.forEach((key) => {
-      const cell = row.insertCell();
-      cell.textContent = item[key] ?? '';
-    });
-  });
-
-  return table;
 }
 </script>
