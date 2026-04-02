@@ -45,7 +45,7 @@ export default defineEventHandler(async (event) => {
 
   try {
     await sendMail({
-      subject: 'Тест',
+      subject: 'Заказ с сайта',
       to: data.email,
       html,
     });
