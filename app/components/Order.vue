@@ -20,7 +20,7 @@
       <UInput v-model="state.deliveryDate" type="date" class="w-full" />
     </UFormField>
 
-    <UButton type="submit">Заказать</UButton>
+    <UButton type="submit" :loading="loading">Заказать</UButton>
   </UForm>
 
   <div v-else class="flex flex-col items-center gap-4">
@@ -38,6 +38,7 @@ const props = defineProps<{
   total: number;
 }>();
 
+const loading = ref(false);
 const isSuccess = ref(false);
 
 const state = reactive<Partial<OrderSchema>>({
@@ -52,6 +53,8 @@ const state = reactive<Partial<OrderSchema>>({
 
 async function onSubmit(event: FormSubmitEvent<OrderSchema>) {
   try {
+    loading.value = true;
+
     await $fetch('/api/order', {
       method: 'POST',
       body: event.data,
@@ -60,6 +63,8 @@ async function onSubmit(event: FormSubmitEvent<OrderSchema>) {
     isSuccess.value = true;
   } catch (error: any) {
     console.log(error);
+  } finally {
+    loading.value = false;
   }
 }
 </script>

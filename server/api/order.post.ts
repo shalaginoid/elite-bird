@@ -1,3 +1,5 @@
+import moment from 'moment';
+
 export default defineEventHandler(async (event) => {
   const { sendMail } = useNodeMailer();
 
@@ -18,7 +20,7 @@ export default defineEventHandler(async (event) => {
     <p>Заказчик: ${data.fullname}</p>
     <p>Телефон: ${data.phone}</p>
     <p>Адрес доставки: ${data.address}</p>
-    <p>Дата доставки: ${data.deliveryDate}</p>
+    <p>Дата доставки: ${moment(data.deliveryDate).format('DD.MM.YYYY')}</p>
 
     <br/>
     <p>Заказ:</p>
