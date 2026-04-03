@@ -5,7 +5,26 @@
       title: 'max-w-xl mx-auto font-black text-primary ',
     }"
   >
-    <template #headline></template>
+    <template #headline>
+      <Motion
+        :initial="{
+          scale: 1.1,
+          opacity: 0,
+          filter: 'blur(20px)',
+        }"
+        :animate="{
+          scale: 1,
+          opacity: 1,
+          filter: 'blur(0px)',
+        }"
+        :transition="{
+          duration: 0.6,
+          delay: 0,
+        }"
+      >
+        <img src="/logo2.svg" width="100" alt="" class="mb-8" />
+      </Motion>
+    </template>
 
     <template #title>
       <Motion
@@ -24,7 +43,7 @@
           delay: 0.1,
         }"
       >
-        <span class="uppercase">Мясо элитной птицы</span>
+        <span class="uppercase noisy-text">Мясо элитной птицы</span>
       </Motion>
     </template>
 

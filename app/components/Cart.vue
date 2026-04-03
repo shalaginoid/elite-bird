@@ -36,6 +36,7 @@
                   <span class="text-xs line-through text-gray-400">{{ item.price * item.quantity }} ₽</span>
                   <span class="text-sm font-bold text-green-600">{{ getItemSubtotal(item).toFixed(0) }} ₽</span>
                 </div>
+
                 <span class="text-[10px] text-green-500 font-medium">
                   Акция: -{{ item.discountRate * 100 }}% от {{ item.discountThreshold }} ₽
                 </span>
@@ -43,6 +44,7 @@
 
               <div v-else class="flex flex-col">
                 <span class="text-sm font-bold">{{ item.price * item.quantity }} ₽</span>
+
                 <span class="text-[10px] text-gray-400">
                   Скидка {{ item.discountRate * 100 }}% при заказе от {{ item.discountThreshold }} ₽
                 </span>
@@ -69,6 +71,7 @@
 
     <template #footer v-if="cart.length > 0">
       <div class="space-y-4 w-full">
+        <pre>{{ cart }}</pre>
         <UAlert
           v-if="!isOrderValid"
           icon="i-lucide-info"

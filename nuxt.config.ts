@@ -1,6 +1,7 @@
 import smtp from './smtp';
 
-const baseURL = '/elite-bird/';
+// const baseURL = '/elite-bird/';
+const baseURL = '/';
 
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
@@ -18,6 +19,9 @@ export default defineNuxtConfig({
   css: ['~/assets/css/main.css'],
 
   fonts: {
+    defaults: {
+      preload: true,
+    },
     families: [
       {
         name: 'Montserrat',
@@ -40,12 +44,12 @@ export default defineNuxtConfig({
     serverBundle: false,
   },
 
-  nitro: {
-    preset: 'cloudflare-pages',
-    prerender: {
-      autoSubfolderIndex: false,
-    },
-  },
+  // nitro: {
+  //   preset: 'cloudflare-pages',
+  //   prerender: {
+  //     autoSubfolderIndex: false,
+  //   },
+  // },
 
   vite: {
     optimizeDeps: {

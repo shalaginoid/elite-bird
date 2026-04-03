@@ -3,8 +3,9 @@
   "type": "module",
   "private": true,
   "scripts": {
-    "build": "nuxt build",
+    "build": "npx nuxi build",
     "dev": "nuxt dev",
+    "deploy": "nuxt build --preset=iis_node && robocopy .output \"\\\\10.128.0.152\\ptiza\" /MIR",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare"

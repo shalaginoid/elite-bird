@@ -59,6 +59,7 @@ export const useCart = () => {
     if (rawTotal >= item.discountThreshold) {
       return rawTotal * (1 - item.discountRate);
     }
+
     return rawTotal;
   };
 
