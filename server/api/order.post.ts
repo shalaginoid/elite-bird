@@ -14,8 +14,6 @@ export default defineEventHandler(async (event) => {
 
   const data = payload.data;
 
-  console.log(data);
-
   const order = data.order.map(({ id, image, discountThreshold, description, ...rest }) => rest);
 
   const html = `
@@ -46,11 +44,11 @@ export default defineEventHandler(async (event) => {
   `;
 
   try {
-    // await sendMail({
-    //   subject: 'Заказ с сайта',
-    //   to: data.email,
-    //   html,
-    // });
+    await sendMail({
+      subject: 'Заказ с сайта',
+      to: data.email,
+      html,
+    });
 
     return sendNoContent(event, 200);
   } catch (error: any) {
