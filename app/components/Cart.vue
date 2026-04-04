@@ -71,7 +71,6 @@
 
     <template #footer v-if="cart.length > 0">
       <div class="space-y-4 w-full">
-        <pre>{{ cart }}</pre>
         <UAlert
           v-if="!isOrderValid"
           icon="i-lucide-info"

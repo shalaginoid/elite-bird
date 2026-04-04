@@ -19,9 +19,7 @@ export default defineNuxtConfig({
   css: ['~/assets/css/main.css'],
 
   fonts: {
-    defaults: {
-      preload: true,
-    },
+    provider: 'google',
     families: [
       {
         name: 'Montserrat',
