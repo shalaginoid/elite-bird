@@ -2,7 +2,7 @@
   <UModal title="Ваша корзина" description="Вы можете закрыть корзину и продолжить покупки">
     <ClientOnly>
       <div ref="cartIconRef">
-        <UChip :text="totalItems" size="3xl" :show="totalItems > 0" inset>
+        <UChip :text="totalItems" size="3xl" :show="totalItems > 0" color="error" inset>
           <UButton color="secondary" icon="i-lucide-shopping-cart" size="xl" class="rounded-full" />
         </UChip>
       </div>
