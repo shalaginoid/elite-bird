@@ -6,6 +6,7 @@
     "build": "npx nuxi build",
     "dev": "nuxt dev",
     "deploy": "nuxt build --preset=iis_node && robocopy .output \"\\\\10.128.0.152\\ptiza\" /MIR",
+    "deploy2": "nuxt build --preset=iis_node && robocopy .output C:\\inetpub\\wwwroot\\elite-bird /MIR",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare"

@@ -1,7 +1,7 @@
 import smtp from './smtp';
 
-// const baseURL = '/elite-bird/';
-const baseURL = '/';
+const baseURL = '/elite-bird/';
+// const baseURL = '/';
 
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
