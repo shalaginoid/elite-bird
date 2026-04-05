@@ -1,5 +1,7 @@
 <template>
   <UForm v-if="!isSuccess" :schema="orderSchema" :state="state" class="space-y-4" @submit="onSubmit">
+    <UAlert v-if="errorMessage" title="Ошибка" :description="errorMessage" color="error" variant="subtle" />
+
     <UFormField label="Имя" name="fullname">
       <UInput v-model="state.fullname" class="w-full" />
     </UFormField>
@@ -40,6 +42,7 @@ const props = defineProps<{
 
 const loading = ref(false);
 const isSuccess = ref(false);
+const errorMessage = ref(null);
 
 const state = reactive<Partial<OrderSchema>>({
   fullname: 'Константин',
@@ -62,7 +65,7 @@ async function onSubmit(event: FormSubmitEvent<OrderSchema>) {
 
     isSuccess.value = true;
   } catch (error: any) {
-    console.log(error);
+    errorMessage.value = error.message;
   } finally {
     loading.value = false;
   }
