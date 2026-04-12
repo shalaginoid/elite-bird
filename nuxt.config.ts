@@ -1,18 +1,11 @@
 import smtp from './smtp';
 
-const baseURL = '/elite-bird/';
-// const baseURL = '/';
-
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
 
   devtools: { enabled: false },
 
   modules: ['@nuxt/ui', 'motion-v/nuxt', '@nuxt/image', 'nuxt-nodemailer'],
-
-  app: {
-    baseURL: baseURL,
-  },
 
   nodemailer: smtp,
 
@@ -40,13 +33,6 @@ export default defineNuxtConfig({
     },
     serverBundle: false,
   },
-
-  // nitro: {
-  //   preset: 'cloudflare-pages',
-  //   prerender: {
-  //     autoSubfolderIndex: false,
-  //   },
-  // },
 
   vite: {
     optimizeDeps: {
